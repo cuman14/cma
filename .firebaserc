@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auto-cuidado-cma": {
+      "hosting": {
+        "cma": [
+          "auto-cuidado-cma"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auto-cuidado-cma"
+  }
+}

@@ -122,6 +122,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "cma:build:production",
+            "firebaseProject": "auto-cuidado-cma",
+            "firebaseHostingSite": "auto-cuidado-cma"
+          }
         }
       }
     }

@@ -2,5 +2,9 @@ export interface Menu {
     icon: string;
     title: string;
     code: string;
-    submenu?: Menu;
+    submenu?: Submenu[];
+}
+
+export interface Submenu {
+    title: string;
 }

@@ -1,4 +1,8 @@
 .menu {
     color: #ffffff;
     display: flex;
+    &__icon {
+        width: 75px;
+        height: 81px;
+    }
 }

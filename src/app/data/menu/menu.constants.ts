@@ -4,21 +4,41 @@ export const MENU: Menu[] = [
   {
     icon: 'cirugia.png',
     title: 'Cirugía',
-    code: 'surgery'
+    code: 'surgery',
+    submenu: [
+      {
+        title: 'Cirugía',
+      }
+    ]
   },
   {
     icon: 'otorrino.png',
     title: 'Otorrinoloringología',
-    code: 'hearing'
+    code: 'hearing',
+    submenu: [
+      {
+        title: 'Cirugía',
+      }
+    ]
   },
   {
     icon: 'trauma.png',
     title: 'Traumatología',
-    code: 'traumatology'
+    code: 'traumatology',
+    submenu: [
+      {
+        title: 'Cirugía',
+      }
+    ]
   },
   {
     icon: 'play.png',
     title: 'Ginecología',
-    code: 'gynecology'
+    code: 'gynecology',
+    submenu: [
+      {
+        title: 'Cirugía',
+      }
+    ]
   },
 ];

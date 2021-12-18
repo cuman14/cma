@@ -1,0 +1,9 @@
+<div class="card_wrapper">
+    <div class="card" [@spin]="toggle" (click)="_showItem()">
+        <ng-content></ng-content>
+        <h2 class="card__title" *ngIf="toggle">{{title}}</h2>
+    </div>
+    <div *ngIf="toggle" class="sub-card" [@displace]="toggle" >
+        <ng-container [ngTemplateOutlet]="subItemDirective"></ng-container>
+    </div>
+</div>

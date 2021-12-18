@@ -1,0 +1,35 @@
+$primary-color: #0199d7;
+$secundary-color: #c00d25;
+$card-size: 165px;
+@mixin base-card {
+    background-color: $primary-color;
+    width: $card-size;
+    margin: 1rem 3rem;
+    height: $card-size;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    padding: 1rem;
+    cursor: pointer;
+}
+.card {
+    @include base-card;
+    &__title {
+        transform: scaleY(-1);
+        color: $primary-color;
+        font-size: 31px;
+        position: absolute;
+    }
+}
+.sub-card {
+    @include base-card;
+    transform: translateY(-109%);
+    .card__title {
+        transform: scaleY(1);
+        font-size: 31px;
+        position: absolute;
+        color: #ffff;
+    }
+}

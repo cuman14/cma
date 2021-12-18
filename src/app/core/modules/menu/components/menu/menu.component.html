@@ -1,7 +1,9 @@
 <div class="menu">
-    <cma-card-item *ngFor="let menuItem of menu">
-    
-        <img [src]="'assets/'+ menuItem.icon" alt="{{menuItem.code}}"  width='50.2px' height='50px'>
-        <h2> {{menuItem.title}}</h2>
+    <cma-card-item *ngFor="let menuItem of menu" >
+        <ng-template  *ngFor="let item of menuItem.submenu" subItem>
+            <div>{{item.title}}</div>
+        </ng-template>
+        <img [src]="'assets/'+ menuItem.icon" alt="{{menuItem.code}}" class="menu__icon">
+        <h2 [cardTitle]="menuItem.title"> {{menuItem.title}}</h2>
     </cma-card-item>
 </div>

@@ -2,34 +2,48 @@ $primary-color: #0199d7;
 $secundary-color: #c00d25;
 $card-size: 165px;
 @mixin base-card {
-    background-color: $primary-color;
-    width: $card-size;
-    margin: 1rem 3rem;
-    height: $card-size;
-    justify-content: space-around;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 12px;
-    padding: 1rem;
-    cursor: pointer;
+  width: $card-size;
+  margin-right: 5rem;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.card_wrapper {
+  @include base-card;
+  position: relative;
+  height: 13rem;
+  z-index: 1;
 }
 .card {
-    @include base-card;
-    &__title {
-        transform: scaleY(-1);
-        color: $primary-color;
-        font-size: 31px;
-        position: absolute;
-    }
+  @include base-card;
+  margin: 1rem 3rem;
+  height: $card-size;
+  position: absolute;
+  background-color: $primary-color;
+  flex-direction: column;
+
+  &__title {
+    transform: scaleY(-1);
+    color: $primary-color;
+    font-size: 31px;
+    position: absolute;
+  }
 }
 .sub-card {
-    @include base-card;
-    transform: translateY(-109%);
-    .card__title {
-        transform: scaleY(1);
-        font-size: 31px;
-        position: absolute;
-        color: #ffff;
-    }
+  @include base-card;
+  height: $card-size;
+  flex-direction: column;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+  margin: 1rem 3rem;
+  .card__title {
+    transform: scaleY(1);
+    font-size: 31px;
+    position: absolute;
+    color: #ffff;
+  }
 }

@@ -1,4 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+@import './var';
+
 body {
     font-family: 'Roboto', sans-serif;
+    margin: 0 auto;
+    max-width: 1162px;
+}
+.section {
+   // width:100%;
+    padding: 3rem;
+    height: 330px;
+    display: flex;
+    flex-wrap: wrap;
+    &--gray {
+        background-color: $bkg-section1;
+    }
+    &--blue {
+        background-color: $primary-color;
+    }
+}
+.base-title {
+    font-size: 44px;
+    margin: 0;
+    u {
+        text-decoration-color: $secondary-color;
+        text-decoration-thickness: from-font;
+    }
+}
+.title {
+    h1 {
+        @extend .base-title;
+    }
+    &--blue {
+        @extend .base-title;
+        color: $primary-color;
+    }
+  
 }

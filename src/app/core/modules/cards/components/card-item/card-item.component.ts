@@ -12,7 +12,6 @@ import { SubItemDirective } from '../../directives/sub-item';
 export class CardItemComponent implements OnInit , AfterContentInit{
 
   @ViewChild(TemplateRef, {static: true}) subItemDirective!: TemplateRef<SubItemDirective>;
-  @ContentChild(CardTitleDirective, {static: true}) cardTitle!: CardTitleDirective;
 
   title!: string;
   subItem!: any[] |undefined;
@@ -23,7 +22,6 @@ export class CardItemComponent implements OnInit , AfterContentInit{
   }
 
   ngAfterContentInit(): void {
-    this.title = this.cardTitle.cardTitle;
     console.log(this.subItemDirective);
   }
   _showItem() {

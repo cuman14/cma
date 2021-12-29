@@ -1,15 +1,15 @@
 $primary-color: #0199d7;
 $secundary-color: #c00d25;
-$card-size: 165px;
+$card-size: 192px;
 @mixin base-card {
   width: $card-size;
-  margin-right: 5rem;
   justify-content: space-around;
   display: flex;
   align-items: center;
   font-size: 12px;
   padding: 1rem;
   cursor: pointer;
+  margin: 1rem;
 }
 .card_wrapper {
   @include base-card;

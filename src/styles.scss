@@ -4,7 +4,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
-    max-width: 1162px;
+    max-width: 1366px;
 }
 .section {
    // width:100%;
@@ -17,6 +17,10 @@ body {
     }
     &--blue {
         background-color: $primary-color;
+    }
+    &--column {
+        flex-direction: column;
+        flex-wrap: nowrap;
     }
 }
 .base-title {

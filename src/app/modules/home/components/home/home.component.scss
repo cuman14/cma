@@ -2,6 +2,8 @@
 
 
 $with-info-s1: 100%;
+$w-img: 385px;
+$h-img: 258px;
 .home {
     &__info {
         width:$with-info-s1;
@@ -9,7 +11,7 @@ $with-info-s1: 100%;
         flex-direction: column;
         position: relative;
         img {
-            width: 300px;
+            width: $w-img;
             position: absolute;
             top: -15px;
             left: 1.1rem;
@@ -17,10 +19,10 @@ $with-info-s1: 100%;
         }
     }
     &__img {
-        width: 300px;
+        width: $w-img;
         background-color: $primary-color;
         position: absolute;
-        height: 203px;
+        height: $h-img;
     }
 
     &__menu {
@@ -34,9 +36,15 @@ $with-info-s1: 100%;
         margin-bottom: 1rem;
     }
     &__text {
-        //width: 33rem;
         margin: 0;
     }
+}
+
+.home__info__image {
+    position: relative;
+    top: 3rem;
+    width: $w-img;
+    margin: 0 auto;
 }
 
 //Desktop
@@ -44,12 +52,13 @@ $with-info-s1: 100%;
     .home__menu {
         position: relative;
     }
-    .home__info {
+    .home__text {
         width: 40%;
-        margin-right: 18rem;
-        &:nth-child(2) {
-            width: 30%;
-            margin-right: 0;
-        }
     } 
+    .home__info__image {
+        position: absolute;
+        right: 0;
+        margin-right: 5.25%;
+
+    }
   }

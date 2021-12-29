@@ -3,6 +3,8 @@
 .menu {
     color: #ffffff;
     display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
     &__icon {
         width: 75px;
         height: 81px;

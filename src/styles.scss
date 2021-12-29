@@ -9,7 +9,7 @@ body {
 .section {
    // width:100%;
     padding: 3rem;
-    height: 330px;
+    height: 371px;
     display: flex;
     flex-wrap: wrap;
     &--gray {
@@ -24,7 +24,7 @@ body {
     }
 }
 .base-title {
-    font-size: 44px;
+    font-size: 54px;
     margin: 0;
     u {
         text-decoration-color: $secondary-color;

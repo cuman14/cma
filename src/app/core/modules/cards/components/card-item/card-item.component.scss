@@ -19,7 +19,6 @@ $card-size: 192px;
 }
 .card {
   @include base-card;
-  margin: 1rem 3rem;
   height: $card-size;
   position: absolute;
   background-color: $primary-color;

@@ -33,7 +33,12 @@ $h-img: 180px;
         top: 7.6rem;
         width: 100%;
         left: 0;
+        display: none;
+        &__mobile {
+            display: flex;
+        }
     }
+    
     &__title {
         width: 16rem;
         margin-bottom: 1rem;
@@ -57,6 +62,10 @@ $h-img: 180px;
     $h-img: 258px;
     .home__menu {
         position: relative;
+        display: flex;
+        &__mobile {
+            display: none;
+        }
     }
     .home__text {
         width: 40%;

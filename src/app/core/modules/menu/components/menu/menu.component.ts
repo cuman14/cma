@@ -9,11 +9,16 @@ import { Menu } from '../../models/menu.model';
 export class MenuComponent implements OnInit {
 
   @Input() menu!: Menu[];
+  toogle: boolean = true;
   
   constructor() { }
 
   ngOnInit(): void {
 
+  }
+
+  openMenu() {
+    this.toogle = !this.toogle;
   }
 
 }

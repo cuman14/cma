@@ -6,7 +6,14 @@
         <img [src]="'assets/'+ menuItem.icon" alt="{{menuItem.code}}" class="menu__icon">
         <h2 > {{menuItem.title}}</h2>
     </cma-card-item>
-    <div class="menu--mobile">
-        MENU
+    <div class="menu--mobile"  [ngClass]="{'menu--active': toogle}">
+        <div class="menu--inactive"  (click)="openMenu()" >
+            <span class="material-icons">
+                drag_handle
+            </span>
+        </div>
+        <div class="menu__element"  *ngFor="let menuItem of menu">
+            <h2 class="menu__element--title"> {{menuItem.title}}</h2>
+        </div>
     </div>
 </div>

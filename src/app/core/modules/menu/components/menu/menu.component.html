@@ -6,12 +6,16 @@
         <img [src]="'assets/'+ menuItem.icon" alt="{{menuItem.code}}" class="menu__icon">
         <h2 > {{menuItem.title}}</h2>
     </cma-card-item>
-    <div class="menu--mobile"  [ngClass]="{'menu--active': toogle}">
-        <div class="menu--inactive"  (click)="openMenu()" >
-            <span class="material-icons">
-                drag_handle
-            </span>
+    <div class="menu--mobile"  [ngClass]="{'menu--active': toggle}">
+        <div  class="menu--inactive" (click)="openMenu()" >
+            <button class="material-icons menu__imobile menu__imobile--switch"  [@hamburgerButton]="toggle">
+               <span class="menu__line up" [@hamburgerButtonChildUp]="toggle"></span>
+               <span class="menu__line down" [@hamburgerButtonChildDown]="toggle"></span>
+            </button>
+            <p class="menu__title">Menu</p>
+
         </div>
+        
         <div class="menu__element"  *ngFor="let menuItem of menu">
             <h2 class="menu__element--title"> {{menuItem.title}}</h2>
         </div>

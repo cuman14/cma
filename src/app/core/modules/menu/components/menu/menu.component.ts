@@ -1,15 +1,17 @@
+import { hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown } from './../../menu-animation';
 import { Component, Input, OnInit } from '@angular/core';
 import { Menu } from '../../models/menu.model';
 
 @Component({
   selector: 'cma-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  animations: [hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown]
 })
 export class MenuComponent implements OnInit {
 
   @Input() menu!: Menu[];
-  toogle: boolean = true;
+  toggle: boolean = true;
   
   constructor() { }
 
@@ -18,7 +20,7 @@ export class MenuComponent implements OnInit {
   }
 
   openMenu() {
-    this.toogle = !this.toogle;
+    this.toggle = !this.toggle;
   }
 
 }

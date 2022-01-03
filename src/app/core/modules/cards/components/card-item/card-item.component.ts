@@ -1,6 +1,6 @@
 import { CardTitleDirective } from './../../directives/card-title';
 import { spin, displace } from './../../rotate.animation';
-import { AfterContentInit, AfterViewInit, Component, ContentChild, OnInit, Query, TemplateRef, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, OnInit, Query, TemplateRef, ViewChild } from '@angular/core';
 import { SubItemDirective } from '../../directives/sub-item';
 
 @Component({
@@ -9,21 +9,29 @@ import { SubItemDirective } from '../../directives/sub-item';
   styleUrls: ['./card-item.component.scss'],
   animations: [spin, displace]
 })
-export class CardItemComponent implements OnInit , AfterContentInit{
+export class CardItemComponent implements OnInit , AfterContentInit, AfterViewInit {
 
-  @ViewChild(TemplateRef, {static: true}) subItemDirective!: TemplateRef<SubItemDirective>;
+  @ContentChild(SubItemDirective, {static: true}) subItemDirective!: SubItemDirective;
 
+  template!: TemplateRef<SubItemDirective>;
   title!: string;
   subItem!: any[] |undefined;
   toggle: boolean = false;
   constructor() { }
 
+
   ngOnInit(): void {
   }
 
   ngAfterContentInit(): void {
-    console.log(this.subItemDirective);
+    this.template =  this.subItemDirective.template;
+    console.log(this.template);
   }
+  ngAfterViewInit(): void {
+    this.template =  this.subItemDirective.template;
+    console.log(this.template);
+  }
+
   _showItem() {
     this.toggle = !this.toggle;
   }

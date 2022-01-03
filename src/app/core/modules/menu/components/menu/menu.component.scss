@@ -12,7 +12,7 @@
     }
     &__title {
        color: $primary-color;
-       font-size: 16px;
+       font-size: 15px;
        padding: 0 .4rem;
     }
     &--desktop {
@@ -33,19 +33,19 @@
     &--inactive {
        display: flex;
        position: absolute;
-       top: 17%;
+       top: 10%;
        width: 130.5px;
        height: 3rem;
     
     }
     &--active {
-        height: 17rem;
+        height: auto;
         opacity: 1;
     }
     
     &__imobile {
         width: 36%;
-        background-color: #0199d7;
+        background-color: transparent;
         height: 3rem;
         border-radius: 43px;
         border: 0;
@@ -57,15 +57,42 @@
         width: 100%;
         border-radius: 8px;
         padding: 0 0.7rem;
-        height: 3rem;
+        height: auto;
         background-color: #e4e4e4;
-        color: #0199d7;
+        color: #0074a3;
         box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
         margin: 0.6rem 0.5rem;
+        position: relative;
         &--title {
             font-size: 15px;
             margin: 0;
             line-height: 3.4;
+        }
+        &--desktop {
+            box-shadow: none;
+            background-color: transparent;
+            transition: all 0.3s;
+            color: #0074a3;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+    &__subelement {
+        font-size: 13px;
+        li {
+            list-style: none;
+            line-height: 1.7;
+            cursor: pointer;
+        }
+        &--close {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+        }
+        &--arrow {
+            @extend .menu__subelement--close;
+            top:13px;
         }
     }
  
@@ -74,7 +101,7 @@
 .menu{
     &__line {
     width: 1.9rem;
-    background-color: #ffff;
+    background-color: #0199d7;
     height: 0.1rem;
     position: absolute;
   }

@@ -7,7 +7,19 @@ export const MENU: Menu[] = [
     code: 'surgery',
     submenu: [
       {
-        title: 'Cirugía',
+        title: 'Hernia y/o  eventración',
+      },
+      {
+        title: 'Abscesos de partes blandas',
+      },
+      {
+        title: 'Tumoraciones de partes blandas',
+      },
+      {
+        title: 'Sinus Pilonidal sobreinfectado',
+      },
+      {
+        title: 'Varices',
       }
     ]
   },
@@ -17,8 +29,14 @@ export const MENU: Menu[] = [
     code: 'hearing',
     submenu: [
       {
-        title: 'Cirugía',
-      }
+        title: 'Microcirugía Laringea',
+      },
+      {
+        title: 'Septoplastia',
+      },
+      {
+        title: 'Timpanoplastia',
+      },
     ]
   },
   {
@@ -27,8 +45,14 @@ export const MENU: Menu[] = [
     code: 'traumatology',
     submenu: [
       {
-        title: 'Cirugía',
-      }
+        title: 'Astrocopia de rodilla',
+      },
+      {
+        title: 'Cirugía de mano',
+      },
+      {
+        title: 'Cirugía de pie',
+      },
     ]
   },
   {
@@ -37,8 +61,11 @@ export const MENU: Menu[] = [
     code: 'gynecology',
     submenu: [
       {
-        title: 'Cirugía',
-      }
+        title: 'Cirugía de mama',
+      },
+      {
+        title: 'Conización',
+      },
     ]
   },
 ];

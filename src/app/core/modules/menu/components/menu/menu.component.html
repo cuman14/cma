@@ -1,23 +1,56 @@
 <div class="menu">
-    <cma-card-item *ngFor="let menuItem of menu" class="menu--desktop">
-        <ng-template  *ngFor="let item of menuItem.submenu" subItem>
-            <div>{{item.title}}</div>
-        </ng-template>
-        <img [src]="'assets/'+ menuItem.icon" alt="{{menuItem.code}}" class="menu__icon">
-        <h2 > {{menuItem.title}}</h2>
-    </cma-card-item>
-    <div class="menu--mobile"  [ngClass]="{'menu--active': toggle}">
-        <div  class="menu--inactive" (click)="openMenu()" >
-            <button class="material-icons menu__imobile menu__imobile--switch"  [@hamburgerButton]="toggle">
-               <span class="menu__line up" [@hamburgerButtonChildUp]="toggle"></span>
-               <span class="menu__line down" [@hamburgerButtonChildDown]="toggle"></span>
-            </button>
-            <p class="menu__title">Menu</p>
+  <!-- Menu DESKTOP-->
+  <cma-card-item *ngFor="let menuItem of menu" class="menu--desktop">
+    <ng-template subItem>
+      <div *ngFor="let item of menuItem.submenu"  class="menu__element--desktop">
+      {{item.title}}
+      </div>
+    </ng-template>
 
-        </div>
-        
-        <div class="menu__element"  *ngFor="let menuItem of menu">
-            <h2 class="menu__element--title"> {{menuItem.title}}</h2>
-        </div>
+    <img
+      [src]="'assets/'+ menuItem.icon"
+      alt="{{menuItem.code}}"
+      class="menu__icon"
+    />
+    <h2>{{menuItem.title}}</h2>
+  </cma-card-item>
+
+  <!-- Menu MOBILE-->
+  <div class="menu--mobile" [ngClass]="{'menu--active': toggle}">
+    <div class="menu--inactive" (click)="openMenu()">
+      <button
+        class="material-icons menu__imobile menu__imobile--switch"
+        [@hamburgerButton]="toggle"
+      >
+        <span class="menu__line up" [@hamburgerButtonChildUp]="toggle"></span>
+        <span
+          class="menu__line down"
+          [@hamburgerButtonChildDown]="toggle"
+        ></span>
+      </button>
+      <p class="menu__title">Menu</p>
     </div>
+
+    <div
+      class="menu__element"
+      *ngFor="let menuItem of menu, let i = index"
+      (click)="_selectItem(i, $event)"
+    >
+      <h2 class="menu__element--title">{{menuItem.title}}</h2>
+      <ul class="menu__subelement" *ngIf="i === _indexCurrentMenu" @expand>
+        <li *ngFor="let subMenu of menuItem.submenu">
+          {{subMenu.title}}
+        </li>
+      </ul>
+      <span class="material-icons menu__subelement--arrow" *ngIf="i !== _indexCurrentMenu">
+        arrow_forward
+        </span>
+      <span
+        class="material-icons menu__subelement--close"
+        *ngIf="i === _indexCurrentMenu"
+        (click)="_closeItem($event)">
+        cancel
+      </span>
+    </div>
+  </div>
 </div>

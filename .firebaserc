@@ -1,14 +1,14 @@
 {
+  "projects": {
+    "default": "app-cma-a8585"
+  },
   "targets": {
-    "auto-cuidado-cma": {
+    "app-cma-a8585": {
       "hosting": {
         "cma": [
-          "auto-cuidado-cma"
+          "info-auto-cuidado"
         ]
       }
     }
-  },
-  "projects": {
-    "default": "auto-cuidado-cma"
   }
 }

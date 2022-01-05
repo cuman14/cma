@@ -1,12 +1,12 @@
 export const environment = {
-  firebase: {
-    projectId: 'auto-cuidado-cma',
-    appId: '1:503285298351:web:518e5175b25cae96b7105a',
-    storageBucket: 'auto-cuidado-cma.appspot.com',
-    apiKey: 'AIzaSyC8cACMNksT_BiBiNx8Jvh2V1vycuqSbyM',
-    authDomain: 'auto-cuidado-cma.firebaseapp.com',
-    messagingSenderId: '503285298351',
-    measurementId: 'G-7QX7MCWZQT',
+  firebaseConfig: {
+    apiKey: "AIzaSyAnQnT_vVP11KUktF5V8cq4eXZNhyGZVYo",
+    authDomain: "app-cma-a8585.firebaseapp.com",
+    projectId: "app-cma-a8585",
+    storageBucket: "app-cma-a8585.appspot.com",
+    messagingSenderId: "584876016044",
+    appId: "1:584876016044:web:142872d90c407dc29ffa09",
+    measurementId: "G-85524VGG88"
   },
   production: true
 };

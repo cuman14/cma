@@ -1,6 +1,7 @@
 import { hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown, expand, smoothHeight } from './../../menu-animation';
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Menu } from '../../models/menu.model';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'cma-menu',
@@ -14,10 +15,13 @@ export class MenuComponent implements OnInit {
   toggle: boolean = true;
   _indexCurrentMenu: number |null = null;
 
-  constructor() { }
+  constructor(private _menuService: MenuService) { }
 
 
   ngOnInit(): void {
+    this._menuService.getMenu().subscribe( data => {
+      console.log(data);
+    });
 
   }
 

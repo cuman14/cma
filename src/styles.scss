@@ -22,6 +22,13 @@ body {
         flex-direction: column;
         flex-wrap: nowrap;
     }
+    //size
+    &--md {
+        height: 271px;
+    }
+    &--sm {
+         height: 224px;
+    }
 }
 .base-title {
     font-size: 2.7rem;

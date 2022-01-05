@@ -9,7 +9,7 @@ import { SubItemDirective } from '../../directives/sub-item';
   styleUrls: ['./card-item.component.scss'],
   animations: [spin, displace]
 })
-export class CardItemComponent implements OnInit , AfterContentInit, AfterViewInit {
+export class CardItemComponent implements OnInit , AfterContentInit {
 
   @ContentChild(SubItemDirective, {static: true}) subItemDirective!: SubItemDirective;
 
@@ -25,12 +25,8 @@ export class CardItemComponent implements OnInit , AfterContentInit, AfterViewIn
 
   ngAfterContentInit(): void {
     this.template =  this.subItemDirective.template;
-    console.log(this.template);
   }
-  ngAfterViewInit(): void {
-    this.template =  this.subItemDirective.template;
-    console.log(this.template);
-  }
+
 
   _showItem() {
     this.toggle = !this.toggle;

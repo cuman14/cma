@@ -1,11 +1,13 @@
 <div class="menu">
   <!-- Menu DESKTOP-->
   <cma-card-item *ngFor="let menuItem of menu" class="menu--desktop">
+    <!-- SubMenu-->
     <ng-template subItem>
       <div *ngFor="let item of menuItem.submenu"  class="menu__element--desktop">
       {{item.title}}
       </div>
     </ng-template>
+     <!-- SubMenu-->
 
     <img
       [src]="'assets/'+ menuItem.icon"

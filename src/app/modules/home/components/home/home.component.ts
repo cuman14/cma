@@ -1,7 +1,7 @@
+import { ToolUtil } from '../../../../core/utils/ToolUtils';
 import { MENU } from './../../../../data/menu/menu.constants';
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Menu } from 'src/app/core/modules/menu/models/menu.model';
-import { ToolUtil } from 'src/app/core/utils/ToolUtils';
 
 @Component({
   selector: 'cma-home',

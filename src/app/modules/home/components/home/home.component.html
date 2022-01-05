@@ -1,4 +1,4 @@
-<cma-menu [menu]="menu" class="home__menu__mobile"></cma-menu>
+<cma-menu  *ngIf="isMobile" [menu]="menu" class="home__menu__mobile"></cma-menu>
 
 <section class="section section--gray section--column">
   <div class="home__info">
@@ -16,7 +16,7 @@
   </div>
 
 
-  <cma-menu [menu]="menu" class="home__menu"></cma-menu>
+  <cma-menu *ngIf="!isMobile" [menu]="menu" class="home__menu"></cma-menu>
 </section>
 <section class="section"></section>
 <section class="section section--blue"></section>

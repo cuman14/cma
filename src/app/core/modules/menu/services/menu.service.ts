@@ -1,7 +1,7 @@
+import { Menu } from './../models/menu.model';
 import { Injectable } from '@angular/core';
-import { AngularFireModule } from '@angular/fire/compat';
-import {getDatabase, ref } from "firebase/database";
-import { AngularFireList, AngularFireDatabase } from '@angular/fire/compat/database';
+import {AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,8 @@ export class MenuService {
 
   constructor(private readonly _db: AngularFireDatabase) {   }
 
-  getMenu() {
-    return this._db.list('menu').valueChanges();
+  getMenu() : Observable<Menu[]> {
+    const menu : Observable<Menu[]> = this._db.list('menu').valueChanges() as Observable<Menu[]>;
+    return menu;
   }
 }

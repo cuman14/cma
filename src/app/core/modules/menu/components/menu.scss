@@ -1,4 +1,4 @@
-@import '../../../../../../var';
+@import '../../../../../var';
 
 .menu {
     color: #ffffff;
@@ -87,7 +87,7 @@
         }
         &--close {
             position: absolute;
-            top: 50%;
+            top: 8%;
             right: 14px;
         }
         &--arrow {
@@ -119,3 +119,4 @@
         display: none;
     }
 }
+

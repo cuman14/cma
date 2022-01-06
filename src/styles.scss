@@ -5,6 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0 auto;
     max-width: 1366px;
+    margin-bottom: 2rem;
 }
 p {
     color: #606060;
@@ -60,4 +61,17 @@ p {
     display: block;
     margin: 16px auto;
 
+}
+.flex {
+    &-row {
+        flex-direction: row;
+    }
+    &-column {
+        flex-direction: row;
+    }
+}
+@media (min-width: $size-ismobile) {
+    .ismobile {
+        display: none !important;
+    }
 }

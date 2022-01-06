@@ -1,7 +1,11 @@
+@import 'var.scss';
+
 .header {
   display: flex;
-  justify-content: space-around;
   height: 5.3rem;
+  width: 88%;
+  margin: 0 auto;
+  justify-content: space-between;
   &__img {
       width: 235px;
       height: 67px;
@@ -13,5 +17,10 @@
     align-self: center;
     font-weight: 600;
     cursor: pointer;
+  }
+}
+@media (min-width: $size-ismobile) {
+  .empty {
+      display: none;
   }
 }

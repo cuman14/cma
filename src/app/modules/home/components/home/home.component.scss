@@ -9,6 +9,7 @@ $h-img: 180px;
     width: $w-img;
     position: relative;
     align-self: center;
+    margin: 0px 5rem;
 }
 .home {
     &__info {
@@ -39,12 +40,22 @@ $h-img: 180px;
         margin-bottom: 1rem;
     }
     &__subtitle {
-        height: 8rem;
-        text-align: center;
+        height: 9.5rem;
         padding-top: 2rem;
+        min-width: 48%;
+        align-self: center;
+        &--center {
+            text-align: center;
+        }
     }
     &__text {
         margin: 0;
+    }
+    &__aboutus {
+        width: 386px;
+        align-self: center;
+        margin-top: 0;
+        text-align: center;
     }
 }
 
@@ -56,10 +67,14 @@ $h-img: 180px;
     margin: 0 auto;
 }
 
+
 //Desktop
-@media (min-width: 800px) {
+@media (min-width: $size-ismobile) {
     $w-img: 385px;
     $h-img: 258px;
+    .section-margin {
+       margin-bottom: 12%;
+    }
     .home__menu {
         position: relative;
         display: flex;
@@ -67,6 +82,15 @@ $h-img: 180px;
         &__mobile {
             display: none;
         }
+    }
+    .home__whatits {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .home__img--low {
+        right: 0px;
+        top: 0px;
+        position: absolute;
     }
     .home__text {
         width: 40%;

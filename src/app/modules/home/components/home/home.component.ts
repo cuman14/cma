@@ -1,7 +1,5 @@
 import { ToolUtil } from '../../../../core/utils/ToolUtils';
-import { MENU } from './../../../../data/menu/menu.constants';
 import { Component, OnInit } from '@angular/core';
-import { Menu } from 'src/app/core/modules/menu/models/menu.model';
 
 @Component({
   selector: 'cma-home',
@@ -10,7 +8,6 @@ import { Menu } from 'src/app/core/modules/menu/models/menu.model';
 })
 export class HomeComponent implements OnInit  {
 
-  public menu: Menu[] = MENU;
   isMobile = ToolUtil.isMobile();
   constructor() { 
   }

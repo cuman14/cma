@@ -1,6 +1,6 @@
 
 
-<div class="menu--mobile" [ngClass]="{'menu--active': toggle}">
+<div class="menu--mobile" [ngClass]="{'menu--active': toggle , 'menu--hauto': _indexCurrentMenu !== null}">
     <div class="menu--inactive" (click)="openMenu()">
       <button
         class="material-icons menu__imobile menu__imobile--switch"

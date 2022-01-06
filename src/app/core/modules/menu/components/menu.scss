@@ -33,7 +33,7 @@
     &--inactive {
        display: flex;
        position: absolute;
-       top: 10%;
+       top: 13%;
        width: 130.5px;
        height: 3rem;
     
@@ -41,6 +41,9 @@
     &--active {
         height: 19rem;
         opacity: 1;
+    }
+    &--hauto {
+        height: auto;
     }
     
     &__imobile {

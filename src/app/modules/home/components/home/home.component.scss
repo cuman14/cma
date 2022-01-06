@@ -4,6 +4,12 @@
 $with-info-s1: 93.4%;
 $w-img: 270px;
 $h-img: 180px;
+.base-img {
+    transition: all .7s;
+    width: $w-img;
+    position: relative;
+    align-self: center;
+}
 .home {
     &__info {
         width:$with-info-s1;
@@ -11,34 +17,31 @@ $h-img: 180px;
         flex-direction: column;
         position: relative;
         margin: 0 auto;
-        img {
-            transition: all .7s;
-            width: $w-img;
-            position: absolute;
-            top: -15px;
-            left: 1.1rem;
-            z-index: 1;
-        }
     }
     &__img {
-        transition: all .7s;
-        width: $w-img;
-        background-color: $primary-color;
-        position: absolute;
-        height: $h-img;
+       @extend .base-img;
+       &--low {
+           @extend .base-img;
+           top: 46px;
+       }
     }
 
     &__menu {
-        position: absolute;
-        top: 7.6rem;
+        margin-top: 3rem;
+        top: 4.6rem;
         width: 100%;
         left: 0;
-        display: flex;
+        display: block;
     }
-    
+
     &__title {
         width: 16rem;
         margin-bottom: 1rem;
+    }
+    &__subtitle {
+        height: 8rem;
+        text-align: center;
+        padding-top: 2rem;
     }
     &__text {
         margin: 0;
@@ -60,6 +63,7 @@ $h-img: 180px;
     .home__menu {
         position: relative;
         display: flex;
+      
         &__mobile {
             display: none;
         }

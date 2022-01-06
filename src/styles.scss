@@ -6,6 +6,13 @@ body {
     margin: 0 auto;
     max-width: 1366px;
 }
+p {
+    color: #606060;
+
+}
+.white {
+    color: #ffffff;
+}
 .section {
    // width:100%;
     padding: 3rem;
@@ -35,9 +42,7 @@ body {
     margin: 0;
 }
 .title {
-    h1 {
-        @extend .base-title;
-    }
+    @extend .base-title;
     &--blue {
         @extend .base-title;
         color: $primary-color;
@@ -47,4 +52,12 @@ body {
 .underline {
     text-decoration:none;
     border-bottom: 2px solid $secondary-color;
+}
+.e-underline {
+    height: 1.8px;
+    width: 6rem;
+    background-color:$secondary-color;
+    display: block;
+    margin: 16px auto;
+
 }

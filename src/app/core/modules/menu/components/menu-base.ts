@@ -7,7 +7,7 @@ import { MenuService } from '../services/menu.service';
 })
 export class MenuBase {
     
-    @Input() menu!: Menu[];
+   menu!: Menu[];
     toggle: boolean = true;
     _indexCurrentMenu: number |null = null;
      
@@ -15,9 +15,9 @@ export class MenuBase {
 
 
     getMenu() {
-        this._menuService.getMenu().subscribe( data => {
-            console.log(data);
-          });  
+        this._menuService.getMenu().subscribe(data=> {
+            this.menu = data;
+        });  
     }
 
     openMenu() {

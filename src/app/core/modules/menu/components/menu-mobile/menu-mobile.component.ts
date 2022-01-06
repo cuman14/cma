@@ -17,6 +17,7 @@ export class MenuMobileComponent  extends MenuBase implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getMenu();
   }
 
 }

@@ -2,41 +2,24 @@ import { hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown, expa
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Menu } from '../../models/menu.model';
 import { MenuService } from '../../services/menu.service';
+import { MenuBase } from '../menu-base';
 
 @Component({
   selector: 'cma-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
-  animations: [hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown, expand, smoothHeight]
+  styleUrls: ['../menu.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent extends MenuBase implements OnInit   {
 
-  @Input() menu!: Menu[];
-  toggle: boolean = true;
-  _indexCurrentMenu: number |null = null;
-
-  constructor(private _menuService: MenuService) { }
+  constructor(private menuService: MenuService) { 
+    super(menuService);
+  }
 
 
   ngOnInit(): void {
-    this._menuService.getMenu().subscribe( data => {
-      console.log(data);
-    });
-
+      this.getMenu();
   }
 
-  openMenu() {
-    this.toggle = !this.toggle;
-    this._indexCurrentMenu = null;
-  }
 
-  _selectItem(index: number, event: Event): void {
-    this._indexCurrentMenu = index;
-    event.stopPropagation();
-  }
-  _closeItem( event: Event) {
-    this._indexCurrentMenu = null;
-    event.stopPropagation();
-  }
 
 }

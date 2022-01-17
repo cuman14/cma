@@ -12,7 +12,11 @@ export const environment = {
     messagingSenderId: "584876016044",
     appId: "1:584876016044:web:142872d90c407dc29ffa09",
     measurementId: "${config.measurementId}"
-    }
+  },
+  contentFul: {
+    spaceId: "ttxv6n5w47ni",
+    token: 'igzcz7bFSqdeC55Q2KRb079IiGitcHtkAElS1c7XdhU'
+  }
 }
 /*
  * For easier debugging in development mode, you can import the following file

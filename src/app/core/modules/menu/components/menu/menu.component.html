@@ -3,7 +3,7 @@
   <cma-card-item *ngFor="let menuItem of menu" class="menu--desktop">
     <!-- SubMenu-->
     <ng-template subItem>
-      <div *ngFor="let item of menuItem.submenu"  class="menu__element--desktop">
+      <div *ngFor="let item of menuItem.submenu"  class="menu__element--desktop" (click)="_goToSubMenu(item)">
       {{item.title}}
       </div>
     </ng-template>

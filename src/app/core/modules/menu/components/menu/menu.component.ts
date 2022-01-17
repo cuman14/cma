@@ -1,8 +1,9 @@
 import { hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown, expand, smoothHeight } from './../../menu-animation';
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { Menu } from '../../models/menu.model';
+import { Menu, Submenu } from '../../models/menu.model';
 import { MenuService } from '../../services/menu.service';
 import { MenuBase } from '../menu-base';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cma-menu',
@@ -11,13 +12,17 @@ import { MenuBase } from '../menu-base';
 })
 export class MenuComponent extends MenuBase implements OnInit   {
 
-  constructor(private menuService: MenuService) { 
+  constructor(private menuService: MenuService, private router: Router) { 
     super(menuService);
   }
 
 
   ngOnInit(): void {
       this.getMenu();
+  }
+
+  _goToSubMenu(menu: Submenu): void {
+    this.router.navigate(['content']);
   }
 
 

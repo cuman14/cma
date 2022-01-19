@@ -1,1 +1,14 @@
-<p>content works!</p>
+<div class="content-s1" *ngIf="data">
+  <section class="section section--gray section--sm">
+    <divclass="content__text">
+      <h1 class="title--blue">{{data.titlePage}}</h1>
+      <p class="home__text">
+        {{data.description}}
+      </p>
+    </divclass=>
+
+    <div>
+      <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
+    </div>
+  </section>
+</div>

@@ -1,0 +1,19 @@
+$w-img: 270px;
+$h-img: 180px;
+
+
+$w2-img: 570px;
+$h2-img: 380px;
+
+
+.content {
+    &__img-title {
+        width: $w2-img;
+        height: $h2-img;
+    }
+    &__text {
+        flex-basis: 50%;
+            flex-grow: 2;
+            gap: 16px;
+    }
+}

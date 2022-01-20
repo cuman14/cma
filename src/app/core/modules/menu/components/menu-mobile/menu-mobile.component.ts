@@ -23,7 +23,7 @@ export class MenuMobileComponent  extends MenuBase implements OnInit {
   }
 
   _goToSubMenu(event: any, menu: Submenu): void {
-    this.router.navigate(['content']);
+    this.router.navigate(['content', { entryId: menu.code}]);
     this.toogleMenu(event);
   }
 

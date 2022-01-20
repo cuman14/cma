@@ -5,7 +5,7 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
   max-width: 1366px;
-  margin-bottom: 2rem;
+  margin-bottom: 13rem;
 }
 p {
   color: #606060;
@@ -19,7 +19,7 @@ p {
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 3rem;
+ 
   &--gray {
     background-color: $bkg-section1;
   }
@@ -48,6 +48,10 @@ p {
     @extend .base-title;
     color: $primary-color;
   }
+}
+.title2 {
+    @extend .base-title;
+    font-size: 34px;
 }
 .underline {
   text-decoration: none;

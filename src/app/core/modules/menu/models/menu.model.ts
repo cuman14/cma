@@ -7,4 +7,5 @@ export interface Menu {
 
 export interface Submenu {
     title: string;
+    code?: string;
 }

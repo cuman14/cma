@@ -22,7 +22,7 @@ export class MenuComponent extends MenuBase implements OnInit   {
   }
 
   _goToSubMenu(menu: Submenu): void {
-    this.router.navigate(['content']);
+    this.router.navigate(['content', { entryId: menu.code}]);
   }
 
 

@@ -1,10 +1,11 @@
 @import 'var';
 
+$size-screen-pc: '1364px';
 $w-img: 370px;
 $h-img: 254px;
 
-$w-img-mobile: 270px;
-$h-img-mobile: 184px;
+$w-img-mobile: 292px;
+$h-img-mobile: 206px;
 
 $w2-img: 570px;
 $h2-img: 380px;
@@ -21,18 +22,21 @@ $h2-img: 380px;
         height: $h-img;
 
         position: absolute;
-        top: 27rem;
         left: 0;
         right: 0;
+        bottom: -46px;
         margin: 0 auto;
     }
     &__wrapper-img {
-        height: 29rem;
-        margin-bottom: 6rem
+        height: 12rem;
+        width: 100%;
     }
     &__img-info {
         width: $w-img-mobile;
         height: $h-img-mobile;
+        padding-top: 31px;
+        padding-right: 20px;
+
     }
     &__text {
         flex-basis: 50%;
@@ -52,40 +56,63 @@ $h2-img: 380px;
     }
     &__section {
         justify-content: center;
-        top: 0.8rem;
+        top: 3.1rem;
         position: relative;
+        flex-flow: wrap-reverse;
+        padding-bottom: 0;
         &--reverse {
             flex-flow: wrap-reverse;
         }
     }
+    &__icon{
+        font-size: 60px;
+        color: $primary-color;
+        position: relative;
+        top: 12%;
+        left: 3rem;
+        cursor: pointer;
+    }
 }
-.content__info::before {
+/* .content__info::before {
     content: '•';
     position: absolute;
     top: 0px;
     left: -27px;
     font-size: 25px;
     margin: 10px;
-}
+} */
 
 
-@media (min-width: $size-ismobile) {
+@media (min-width: $size-screen-pc) {
+    .content__header {
+        margin: 0 3.2rem;
+    }
+    .content__section {
+        margin: 0 3rem;
+        &--reverse {
+            flex-flow: row-reverse wrap;
+        }
+    }
     .content__img-title {
         width: $w2-img;
         height: $h2-img;
         position: inherit;
     }
+    .content__wrapper-img {
+        width: auto;
+    }
     .content__img-info {
         width: $w-img;
         height: $h-img;
     }
-    .content__info::before {
-        top: 62px;
+   
+    .content__info{
+        margin: 0 3rem;
     }
-    .content__section {
-        &--reverse {
-            flex-flow: row-reverse wrap;
-        }
+    .content__text {
+        flex-basis: 32%;
+        margin-right: 10rem;
     }
+
 
 }

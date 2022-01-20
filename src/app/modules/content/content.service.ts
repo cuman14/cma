@@ -14,9 +14,7 @@ export class ContentService {
 
   constructor() { }
 
-  logContent(contentId: string) {
-  /*   this._client.getEntries({content_type: 'cma'}).then(res => console.log(res)); */
-
-    return from(this._client.getEntry('3rqaxN0WyVQYHPk1L22Ay0'))
+  getContent(entryId: string) {
+    return from(this._client.getEntry(entryId))
   }
 }

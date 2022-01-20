@@ -1,7 +1,7 @@
   <ng-container *ngIf="data">
     <section class="section section--gray section--md content__header">
       <div class="content__text">
-        <h1 class="title--blue">{{data.titlePage}}</h1>
+        <h1 class="title--blue title2">{{data.titlePage}}</h1>
         <p class="home__text">
           {{data.description}}
         </p>
@@ -19,8 +19,11 @@
         </ng-container>
          
     </section>
+    
 
   </ng-container>
   
-  
+  <span class="material-icons content__icon" [routerLink]="['/']">
+    arrow_back
+    </span>
 

@@ -1,21 +1,22 @@
 import { Menu } from './../models/menu.model';
 import { Input, Component } from '@angular/core';
 import { MenuService } from '../services/menu.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'cma-menu-base',
   template: `<div></div>`,
 })
 export class MenuBase {
-  menu!: Menu[];
+  menu$!: Observable<Menu[]>;
   toggle: boolean = true;
   _indexCurrentMenu: number | null = null;
 
-  constructor(private _menuService: MenuService) {}
+  constructor(private _menuService: MenuService) {
+  
+  }
 
   getMenu() {
-    this._menuService.getMenu().subscribe((data) => {
-      this.menu = data;
-    });
+    this.menu$ = this._menuService.getMenu();
   }
 
   toogleMenu(event?: Event) {

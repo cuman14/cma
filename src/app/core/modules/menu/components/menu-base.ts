@@ -18,9 +18,11 @@ export class MenuBase {
     });
   }
 
-  openMenu() {
+  toogleMenu(event?: Event) {
     setTimeout(() => (this.toggle = !this.toggle));
     this._indexCurrentMenu = null;
+    event?.stopPropagation();
+
   }
 
   _selectItem(index: number, event: Event): void {

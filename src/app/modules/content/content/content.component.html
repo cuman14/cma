@@ -1,14 +1,26 @@
-<div class="content-s1" *ngIf="data">
-  <section class="section section--gray section--sm">
-    <div class="content__text">
-      <h1 class="title--blue">hola{{data.titlePage}}</h1>
-      <p class="home__text">
-        {{data.description}}
-      </p>
-    </div>
+  <ng-container *ngIf="data">
+    <section class="section section--gray section--md content__header">
+      <div class="content__text">
+        <h1 class="title--blue">{{data.titlePage}}</h1>
+        <p class="home__text">
+          {{data.description}}
+        </p>
+      </div>
+  
+      <div class="content__wrapper-img">
+        <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
+      </div>
+    </section>
+    <section  class="section section--sm content__section" *ngFor="let section of content;let odd = odd" 
+    [ngClass]="{'content__section--reverse': odd}">
+        <ng-container *ngIf="section">
+          <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
+          <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+        </ng-container>
+         
+    </section>
 
-    <div>
-      <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
-    </div>
-  </section>
-</div>
+  </ng-container>
+  
+  
+

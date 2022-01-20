@@ -1,7 +1,7 @@
 
 
 <div class="menu--mobile" [ngClass]="{'menu--active': toggle , 'menu--hauto': _indexCurrentMenu !== null}">
-    <div class="menu--inactive" (click)="openMenu()">
+    <div class="menu--inactive" (click)="toogleMenu($event)">
       <button
         class="material-icons menu__imobile menu__imobile--switch"
         [@hamburgerButton]="toggle"
@@ -21,8 +21,8 @@
       (click)="_selectItem(i, $event)"
     >
       <h2 class="menu__element--title">{{menuItem.title}}</h2>
-      <ul class="menu__subelement" *ngIf="i === _indexCurrentMenu" @expand>
-        <li *ngFor="let subMenu of menuItem.submenu">
+      <ul class="menu__subelement" *ngIf="i === _indexCurrentMenu" @expand >
+        <li *ngFor="let subMenu of menuItem.submenu" (click)="_goToSubMenu($event,subMenu)">
           {{subMenu.title}}
         </li>
       </ul>

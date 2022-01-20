@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ContentRoutingModule } from './content-routing.module';
 import { ContentComponent } from './content/content.component';
+import { MdToHtmlPipe } from './content/md-to-html.pipe';
 
 
 @NgModule({
   declarations: [
-    ContentComponent
+    ContentComponent,
+    MdToHtmlPipe
   ],
   imports: [
     CommonModule,

@@ -10,6 +10,7 @@ import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { MenuModule } from './core/modules/menu/menu.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     BrowserAnimationsModule,
     HeaderModule,
     CommonModule,
+    MenuModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
   /*   provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), */

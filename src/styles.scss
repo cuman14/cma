@@ -1,77 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
-@import './var';
+@import "./var";
 
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0 auto;
-    max-width: 1366px;
-    margin-bottom: 2rem;
+  font-family: "Roboto", sans-serif;
+  margin: 0 auto;
+  max-width: 1366px;
+  margin-bottom: 2rem;
 }
 p {
-    color: #606060;
-
+  color: #606060;
 }
 .white {
-    color: #ffffff;
+  color: #ffffff;
 }
 .section {
-   // width:100%;
-    padding: 3rem;
-    height: 371px;
-    display: flex;
-    flex-wrap: wrap;
-    &--gray {
-        background-color: $bkg-section1;
-    }
-    &--blue {
-        background-color: $primary-color;
-    }
-    &--column {
-        flex-direction: column;
-        flex-wrap: nowrap;
-    }
-    //size
-    &--md {
-        height: 271px;
-    }
-    &--sm {
-         height: 224px;
-    }
+  // width:100%;
+  padding: 3rem;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  &--gray {
+    background-color: $bkg-section1;
+  }
+  &--blue {
+    background-color: $primary-color;
+  }
+  &--column {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  //size
+  &--md {
+    min-height: 271px;
+  }
+  &--sm {
+    min-height: 224px;
+  }
 }
 .base-title {
-    font-size: 2.7rem;
-    margin: 0;
+  font-size: 2.7rem;
+  margin: 0;
 }
 .title {
+  @extend .base-title;
+  &--blue {
     @extend .base-title;
-    &--blue {
-        @extend .base-title;
-        color: $primary-color;
-    }
-  
+    color: $primary-color;
+  }
 }
 .underline {
-    text-decoration:none;
-    border-bottom: 2px solid $secondary-color;
+  text-decoration: none;
+  border-bottom: 2px solid $secondary-color;
 }
 .e-underline {
-    height: 1.8px;
-    width: 6rem;
-    background-color:$secondary-color;
-    display: block;
-    margin: 16px auto;
-
+  height: 1.8px;
+  width: 6rem;
+  background-color: $secondary-color;
+  display: block;
+  margin: 16px auto;
 }
 .flex {
-    &-row {
-        flex-direction: row;
-    }
-    &-column {
-        flex-direction: row;
-    }
+  &-row {
+    flex-direction: row;
+  }
+  &-column {
+    flex-direction: row;
+  }
 }
 @media (min-width: $size-ismobile) {
-    .ismobile {
-        display: none !important;
+  .ismobile {
+    display: none !important;
+  }
+  .section {
+    height: 371px;
+    &--md {
+      height: 271px;
     }
+    &--sm {
+      height: 224px;
+    }
+  }
 }

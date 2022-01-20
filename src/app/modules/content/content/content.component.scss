@@ -53,6 +53,8 @@ $h2-img: 380px;
         align-items: center;
         font-weight: 300;
         position:relative;
+        flex-direction: column;
+        justify-content: center;
     }
     &__section {
         justify-content: center;

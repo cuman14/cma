@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
 import { ContentService } from "../content.service";
 import { map } from "rxjs/operators";
 import { ActivatedRoute } from "@angular/router";
@@ -8,10 +8,13 @@ const KEY_ENTRY_ID = 'entryId';
   selector: "cma-content",
   templateUrl: "./content.component.html",
   styleUrls: ["./content.component.scss"],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class ContentComponent implements OnInit, OnDestroy {
   data: any;
   content: any;
+  conentEsp: any;
   constructor(
     private readonly _contentService: ContentService,
     private route: ActivatedRoute
@@ -25,10 +28,9 @@ export class ContentComponent implements OnInit, OnDestroy {
       .pipe(map((res) => res.fields))
       .subscribe((data) => {
         this.data = data;
-        this.content = this.data.body.content
-          .map((field: any) => field.data?.target?.fields)
-          .filter((el: any) => !!el);
-        console.log(this.data);
+        this.content = this.data.body.content.map((field: any) => field.data?.target?.fields).filter((el: any) => !!el);
+
+        console.log(this.content);
        
       });
   }

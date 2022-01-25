@@ -86,3 +86,9 @@ p {
     }
   }
 }
+
+@media (max-width: $size-ismobile) {
+  .isDesktop {
+    display: none !important;
+  }
+}

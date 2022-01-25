@@ -13,9 +13,14 @@
     </section>
     <section  class="section section--sm content__section" *ngFor="let section of content;let odd = odd" 
     [ngClass]="{'content__section--reverse': odd}">
-        <ng-container *ngIf="section">
-          <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
-          <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+        <ng-container [ngSwitch]="section.type">
+
+          <ng-container *ngSwitchCase="'textWithImg'" [ngTemplateOutlet]="textWithImg" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
+          <ng-container *ngSwitchCase="'text-large'" [ngTemplateOutlet]="textLarge" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
+          <ng-container *ngSwitchCase="'text-esp2'" [ngTemplateOutlet]="textExp2" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
+
+          <ng-container *ngSwitchDefault [ngTemplateOutlet]="text"></ng-container>
+
         </ng-container>
          
     </section>
@@ -25,5 +30,33 @@
   
   <span class="material-icons content__icon" [routerLink]="['/']">
     arrow_back
-    </span>
+  </span>
+
+<ng-template #textWithImg let-section>
+  <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
+  <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+</ng-template>
+
+<ng-template #textLarge let-section>
+  <div class="content__info content__info--large" [innerHTML]="section?.description | mdToHtml"></div>
+</ng-template>
+
+<ng-template #textExp2 let-section>
+  <div class="content__info content__info--exp2" [innerHTML]="section?.description | mdToHtml"></div>
+  <div class="img-esp isDesktop" *ngFor="let img of section.imgEsp">
+    <img  src="assets/{{img}}"  />
+  </div>
+
+  <div *ngFor="let item of section?.body?.content" class="content__info--exp2m">
+   <div class="img-esp">
+    <img  src="assets/female-solid.svg" class="img-esp-elments"  />
+   </div>
+   <div [innerHTML]="item.content[0].value | mdToHtml"></div>
+  </div>
+
+</ng-template>
+
+<ng-template #text let-section>
+  <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+</ng-template>
 

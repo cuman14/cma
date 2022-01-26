@@ -1,62 +1,202 @@
-  <ng-container *ngIf="data">
-    <section class="section section--gray section--md content__header">
-      <div class="content__text">
-        <h1 class="title--blue title2">{{data.titlePage}}</h1>
-        <p class="home__text">
-          {{data.description}}
-        </p>
-      </div>
-  
-      <div class="content__wrapper-img">
-        <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
-      </div>
-    </section>
-    <section  class="section section--sm content__section" *ngFor="let section of content;let odd = odd" 
-    [ngClass]="{'content__section--reverse': odd}">
-        <ng-container [ngSwitch]="section.type">
+<ng-container *ngIf="data">
+  <section class="section section--gray section--md content__header">
+    <div class="content__text">
+      <h1 class="title--blue title2">{{data.titlePage}}</h1>
+      <p class="home__text">
+        {{data.description}}
+      </p>
+      
+<span class="material-icons content__icon" [routerLink]="['/']">
+  arrow_back
+</span>
+    </div>
 
-          <ng-container *ngSwitchCase="'textWithImg'" [ngTemplateOutlet]="textWithImg" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
-          <ng-container *ngSwitchCase="'text-large'" [ngTemplateOutlet]="textLarge" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
-          <ng-container *ngSwitchCase="'text-esp2'" [ngTemplateOutlet]="textExp2" [ngTemplateOutletContext]="{$implicit: section}"></ng-container>
+    <div class="content__wrapper-img">
+      <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
+    </div>
+  </section>
+  <section
+    class="section section--auto content__section"
+    *ngFor="let section of content;let odd = odd; let first = first"
+  >
+    <ng-container [ngSwitch]="section.type">
+      <ng-container
+        *ngSwitchCase="'textWithImg'"
+        [ngTemplateOutlet]="textWithImg"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
 
-          <ng-container *ngSwitchDefault [ngTemplateOutlet]="text"></ng-container>
+      <ng-container
+        *ngSwitchCase="'textWithVideo'"
+        [ngTemplateOutlet]="textWithVideo"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd, first: first}"
+      ></ng-container>
 
-        </ng-container>
-         
-    </section>
-    
+      <ng-container
+        *ngSwitchCase="'text-large'"
+        [ngTemplateOutlet]="textLarge"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
+      <ng-container
+        *ngSwitchCase="'text-large2'"
+        [ngTemplateOutlet]="textLarge2"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
 
-  </ng-container>
-  
-  <span class="material-icons content__icon" [routerLink]="['/']">
-    arrow_back
-  </span>
+      <ng-container
+        *ngSwitchCase="'text-esp2'"
+        [ngTemplateOutlet]="textEsp2"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
+      <ng-container
+        *ngSwitchCase="'text-esp'"
+        [ngTemplateOutlet]="textEsp"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
 
+      <ng-container
+        *ngSwitchCase="'text2'"
+        [ngTemplateOutlet]="text2"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
+
+      <ng-container
+      *ngSwitchCase="'text3'"
+      [ngTemplateOutlet]="text3"
+      [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+    ></ng-container>
+
+      <ng-container *ngSwitchDefault [ngTemplateOutlet]="text"></ng-container>
+    </ng-container>
+  </section>
+</ng-container>
+<ng-container *ngIf="!data">
+  <div class="no-content">{{noContent}}</div>
+</ng-container>
+
+
+<!-- IMAGEN -->
 <ng-template #textWithImg let-section>
   <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
-  <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+  <div
+    class="content__info"
+    [innerHTML]="section?.description | mdToHtml"
+  ></div>
 </ng-template>
 
+<!-- VIDEO -->
+<ng-template #textWithVideo let-section let-odd="odd" let-first="first">
+  <div
+    class="wrapper-content"
+    [ngClass]="{'content__section--reverse': odd || first}"
+  >
+    <div
+      class="content__info--video"
+      [innerHTML]="section?.description | mdToHtml"
+    ></div>
+    <iframe
+      class="content__video-info"
+      [src]="section?.descriptionImg | safe"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; 
+      clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+</ng-template>
+
+<!-- TEXT LARGE -->
 <ng-template #textLarge let-section>
-  <div class="content__info content__info--large" [innerHTML]="section?.description | mdToHtml"></div>
+  <div
+    class="content__info content__info--large"
+    [innerHTML]="section?.description | mdToHtml"
+  ></div>
 </ng-template>
 
-<ng-template #textExp2 let-section>
-  <div class="content__info content__info--exp2" [innerHTML]="section?.description | mdToHtml"></div>
-  <div class="img-esp isDesktop" *ngFor="let img of section.imgEsp">
-    <img  src="assets/{{img}}"  />
+<!-- TEXT LARGE TYPE2 -->
+<ng-template #textLarge2 let-section let-odd="odd">
+  <div class="wrapper-content">
+    <div
+      class="content__info content__info--large2"
+      [innerHTML]="section?.description | mdToHtml"
+    ></div>
   </div>
-
-  <div *ngFor="let item of section?.body?.content" class="content__info--exp2m">
-   <div class="img-esp">
-    <img  src="assets/female-solid.svg" class="img-esp-elments"  />
-   </div>
-   <div [innerHTML]="item.content[0].value | mdToHtml"></div>
-  </div>
-
 </ng-template>
 
+<!-- TEXT WITH SPECIFICATION -->
+<ng-template #textEsp let-section let-odd="odd">
+  <div class="wrapper-content--center" [ngClass]="{'content__section--reverse': odd}">
+    <div class="content__info--esp">
+      <div
+        class="esp-title"
+        [innerHTML]="section?.description | mdToHtml"
+      ></div>
+      <div class="esp-content">
+        <div
+          *ngFor="let item of section?.body?.content; let last=last"
+          class="esp-items"
+        >
+          <div class="img-esp">
+            <img src="assets/female-solid.svg" class="img-esp-elments" />
+          </div>
+          <div [innerHTML]="item.content[0].value | mdToHtml"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- MOBILE -->
+</ng-template>
+
+<!-- TEXT WITH SPECIFICATION TYPE 2 -->
+<ng-template #textEsp2 let-section let-odd="odd">
+  <div class="wrapper-content--between wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
+    <div
+      class="content__info content__info--esp2"
+      [innerHTML]="section?.description | mdToHtml"
+    ></div>
+    <div class="content__info--iconEsp2">
+      <div class="img-esp isDesktop" *ngFor="let img of section.imgEsp">
+        <img src="assets/{{img}}" />
+      </div>
+    </div>
+   
+  </div>
+
+  <!-- MOBILE -->
+  <div
+    *ngFor="let item of section?.body?.content; let last= last"
+    class="content__info--esp2m"
+  >
+    <div class="img-esp" *ngIf="!last">
+      <img src="assets/female-solid.svg" class="img-esp-elments" />
+    </div>
+    <div [innerHTML]="item.content[0].value | mdToHtml"></div>
+  </div>
+</ng-template>
+
+<!-- TEXT TYPE 2 -->
+<ng-template #text2 let-section>
+  <div class="wrapper-content--between wrapper-content--s92">
+  <div *ngFor="let item of section?.body?.content" class="content__info--text2">
+    <div [innerHTML]="item.content[0].value | mdToHtml"></div>
+  </div>
+  </div>
+</ng-template>
+
+<!-- TEXT TYPE 3 -->
+<ng-template #text3 let-section>
+  <div
+    class="content__info content__info--text3"
+    [innerHTML]="section?.description | mdToHtml"
+  ></div>
+</ng-template>
+
+
+<!-- TEXT -->
 <ng-template #text let-section>
-  <div class="content__info" [innerHTML]="section?.description | mdToHtml"></div>
+  <div
+    class="content__info"
+    [innerHTML]="section?.description | mdToHtml"
+  ></div>
 </ng-template>
-

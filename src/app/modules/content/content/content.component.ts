@@ -15,6 +15,7 @@ export class ContentComponent implements OnInit, OnDestroy {
   data: any;
   content: any;
   conentEsp: any;
+  noContent!: string;
   constructor(
     private readonly _contentService: ContentService,
     private route: ActivatedRoute
@@ -22,6 +23,16 @@ export class ContentComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const entryId = this.route.snapshot.paramMap.get(KEY_ENTRY_ID) || sessionStorage.getItem(KEY_ENTRY_ID) as string;
+    console.log(entryId);
+    if(entryId !=='undefined') {
+      this._getContentEntry(entryId);
+    } else {
+      this.noContent = 'Pronto tendrás la información que deseas!'
+    }
+
+  }
+
+  private _getContentEntry(entryId: string) {
     sessionStorage.setItem(KEY_ENTRY_ID,entryId);
     this._contentService
       .getContent(entryId)

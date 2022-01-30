@@ -30,7 +30,7 @@ $h2-img: 380px;
     transition: all 0.7s;
     width: $w-img;
     height: $h-img;
-
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     position: absolute;
     left: 0;
     right: 0;
@@ -104,14 +104,16 @@ $h2-img: 380px;
     }
   }
   &__icon {
+
+    position: fixed;
+    bottom: 15px;
+    left: 76%;
+    z-index: 10;
     font-size: 50px;
     color: $primary-color;
-    position: relative;
-    bottom: -15px;
     right: 0;
     margin: 0 auto;
     width: 3.3rem;
-    left: 0;
     cursor: pointer;
     background: #ffff;
     border-radius: 17px;
@@ -185,6 +187,11 @@ $h2-img: 380px;
     height: $h-video;
     padding-left: 0.3rem;
   }
+  .content__icon {
+    position: relative;
+    bottom: -15px;
+    left: 0;
+  }
   .content__info {
     margin: 0 3rem;
     &--large {
@@ -228,6 +235,7 @@ $h2-img: 380px;
       align-items: center;
       width: 55%;
       display: flex;
+      flex-direction: column;
       p {
         width: 80%;
       }

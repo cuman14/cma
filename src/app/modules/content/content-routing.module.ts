@@ -4,8 +4,9 @@ import { ContentComponent } from './content/content.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: ContentComponent
+    path: ':id',
+    component: ContentComponent,
+    data: { animation: 'HomePage' }
   }
 ];
 

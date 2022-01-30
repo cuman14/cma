@@ -1,5 +1,5 @@
-<ng-container *ngIf="data">
-  <section class="section section--gray section--md content__header">
+<ng-container *ngIf="data" >
+  <section class="section section--gray section--md content__header" @fadeIn>
     <div class="content__text">
       <h1 class="title--blue title2">{{data.titlePage}}</h1>
       <p class="home__text">
@@ -15,7 +15,7 @@
       <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
     </div>
   </section>
-  <section
+  <section title="{{section.titlePage}}" [attr.data-type]="section.type"
     class="section section--auto content__section"
     *ngFor="let section of content;let odd = odd; let first = first"
   >
@@ -73,8 +73,6 @@
 <ng-container *ngIf="!data">
   <div class="no-content">{{noContent}}</div>
 </ng-container>
-
-
 <!-- IMAGEN -->
 <ng-template #textWithImg let-section>
   <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
@@ -88,7 +86,7 @@
 <ng-template #textWithVideo let-section let-odd="odd" let-first="first">
   <div
     class="wrapper-content"
-    [ngClass]="{'content__section--reverse': odd || first}"
+    [ngClass]="{'content__section--reverse': odd}"
   >
     <div
       class="content__info--video"
@@ -134,11 +132,11 @@
       ></div>
       <div class="esp-content">
         <div
-          *ngFor="let item of section?.body?.content; let last=last"
+          *ngFor="let item of section?.body?.content; let last=last; let i = index"
           class="esp-items"
         >
           <div class="img-esp">
-            <img src="assets/female-solid.svg" class="img-esp-elments" />
+            <img src="assets/{{section?.imgEsp[i]}}" class="img-esp-elments" />
           </div>
           <div [innerHTML]="item.content[0].value | mdToHtml"></div>
         </div>

@@ -1,14 +1,18 @@
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from "@angular/core";
 import { ContentService } from "../content.service";
-import { map } from "rxjs/operators";
-import { ActivatedRoute } from "@angular/router";
+import { delay, map } from "rxjs/operators";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Subscription } from "rxjs";
+import { animate, style, transition, trigger } from "@angular/animations";
+import { fadeIn } from "src/app/core/animations/router-animations";
 
 const KEY_ENTRY_ID = 'entryId';
 @Component({
   selector: "cma-content",
   templateUrl: "./content.component.html",
   styleUrls: ["./content.component.scss"],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [fadeIn]
 
 })
 export class ContentComponent implements OnInit, OnDestroy {
@@ -16,19 +20,24 @@ export class ContentComponent implements OnInit, OnDestroy {
   content: any;
   conentEsp: any;
   noContent!: string;
+  changeUrl$!: Subscription;
   constructor(
     private readonly _contentService: ContentService,
-    private route: ActivatedRoute
+    private readonly route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
-    const entryId = this.route.snapshot.paramMap.get(KEY_ENTRY_ID) || sessionStorage.getItem(KEY_ENTRY_ID) as string;
-    console.log(entryId);
-    if(entryId !=='undefined') {
-      this._getContentEntry(entryId);
-    } else {
-      this.noContent = 'Pronto tendrás la información que deseas!'
-    }
+
+    this.changeUrl$ = this.route.url.subscribe(url => { 
+      const entryId = url[0].path || sessionStorage.getItem(KEY_ENTRY_ID) as string;
+      console.log(entryId);
+      if(entryId !=='undefined') {
+        this._getContentEntry(entryId);
+      } else {
+        this.noContent = 'Pronto tendrás la información que deseas!'
+      }
+    });
+
 
   }
 
@@ -40,13 +49,13 @@ export class ContentComponent implements OnInit, OnDestroy {
       .subscribe((data) => {
         this.data = data;
         this.content = this.data.body.content.map((field: any) => field.data?.target?.fields).filter((el: any) => !!el);
-
         console.log(this.content);
        
       });
   }
   ngOnDestroy(): void {
       sessionStorage.removeItem(KEY_ENTRY_ID);
+      this.changeUrl$.unsubscribe();
     
   }
 }

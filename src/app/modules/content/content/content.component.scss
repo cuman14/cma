@@ -1,8 +1,11 @@
 @import "var";
 
 $size-screen-pc: "1364px";
-$w-img: 370px;
-$h-img: 254px;
+$w-img: 541px;
+$h-img: 307px;
+
+$w-img-title-mobile: 370px;
+$h-img-title-mobile: 254px;
 
 $w-video: 489px;
 $h-video: 285px;
@@ -28,8 +31,8 @@ $h2-img: 380px;
   }
   &__img-title {
     transition: all 0.7s;
-    width: $w-img;
-    height: $h-img;
+    width: $w-img-title-mobile;
+    height: $h-img-title-mobile;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     position: absolute;
     left: 0;
@@ -81,6 +84,8 @@ $h2-img: 380px;
     }
     &--large2 {
       @include base-p;
+      padding: 4rem;
+      text-align: center; 
     }
     &--esp2 {
       display: none;
@@ -90,6 +95,15 @@ $h2-img: 380px;
     }
     &--video {
       padding: 1rem;
+    }
+    &--text2 {
+      padding: 3rem;
+      &:last-child {
+        background-color: $primary-color;
+        p {
+          color: #ffffff;
+        }
+      }
     }
   }
   &__section {
@@ -128,6 +142,15 @@ $h2-img: 380px;
   flex-flow: wrap;
   align-items: center;
 }
+@mixin base-media {
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  p {
+    width: 80%;
+  }
+}
 .wrapper-content {
   @include base-wrapper;
   &--center {
@@ -161,6 +184,10 @@ $h2-img: 380px;
 }
 
 @media (min-width: $size-screen-pc) {
+  .content__img-title {
+    width: $w-img-mobile;
+    height: $h-img-mobile;
+  }
   .content__header {
     margin: 0 3.2rem;
   }
@@ -231,25 +258,19 @@ $h2-img: 380px;
       }
     }
     &--video {
-      justify-content: flex-end;
-      align-items: center;
+      @include base-media;
       width: 55%;
-      display: flex;
-      flex-direction: column;
-      p {
-        width: 80%;
-      }
+  
+    }
+    &--img {
+      @include base-media;
+      width: 45%;
     }
     &--text2 {
       width: 40%;
       text-align: justify;
       padding: 3rem;
-      &:last-child {
-        background-color: $primary-color;
-        p {
-          color: #ffffff;
-        }
-      }
+  
     }
     &--text3 {
       flex-grow: unset;

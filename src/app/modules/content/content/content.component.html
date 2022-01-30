@@ -1,21 +1,23 @@
-<ng-container *ngIf="data" >
+<ng-container *ngIf="data">
   <section class="section section--gray section--md content__header" @fadeIn>
     <div class="content__text">
       <h1 class="title--blue title2">{{data.titlePage}}</h1>
       <p class="home__text">
         {{data.description}}
       </p>
-      
-<span class="material-icons content__icon" [routerLink]="['/']">
-  arrow_back
-</span>
+
+      <span class="material-icons content__icon" [routerLink]="['/']">
+        arrow_back
+      </span>
     </div>
 
     <div class="content__wrapper-img">
       <img src="assets/{{data.descriptionImg}}" class="content__img-title" />
     </div>
   </section>
-  <section title="{{section.titlePage}}" [attr.data-type]="section.type"
+  <section
+    title="{{section.titlePage}}"
+    [attr.data-type]="section.type"
     class="section section--auto content__section"
     *ngFor="let section of content;let odd = odd; let first = first"
   >
@@ -61,10 +63,10 @@
       ></ng-container>
 
       <ng-container
-      *ngSwitchCase="'text3'"
-      [ngTemplateOutlet]="text3"
-      [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
-    ></ng-container>
+        *ngSwitchCase="'text3'"
+        [ngTemplateOutlet]="text3"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
 
       <ng-container *ngSwitchDefault [ngTemplateOutlet]="text"></ng-container>
     </ng-container>
@@ -74,20 +76,19 @@
   <div class="no-content">{{noContent}}</div>
 </ng-container>
 <!-- IMAGEN -->
-<ng-template #textWithImg let-section>
-  <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
-  <div
-    class="content__info"
-    [innerHTML]="section?.description | mdToHtml"
-  ></div>
+<ng-template #textWithImg let-section let-odd="odd">
+  <div class="wrapper-content--between wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
+    <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
+    <div
+      class="content__info--img"
+      [innerHTML]="section?.description | mdToHtml"
+    ></div>
+  </div>
 </ng-template>
 
 <!-- VIDEO -->
 <ng-template #textWithVideo let-section let-odd="odd" let-first="first">
-  <div
-    class="wrapper-content"
-    [ngClass]="{'content__section--reverse': odd}"
-  >
+  <div class="wrapper-content" [ngClass]="{'content__section--reverse': odd || !first}">
     <div
       class="content__info--video"
       [innerHTML]="section?.description | mdToHtml"
@@ -124,7 +125,10 @@
 
 <!-- TEXT WITH SPECIFICATION -->
 <ng-template #textEsp let-section let-odd="odd">
-  <div class="wrapper-content--center" [ngClass]="{'content__section--reverse': odd}">
+  <div
+    class="wrapper-content--center"
+    [ngClass]="{'content__section--reverse': odd}"
+  >
     <div class="content__info--esp">
       <div
         class="esp-title"
@@ -148,7 +152,10 @@
 
 <!-- TEXT WITH SPECIFICATION TYPE 2 -->
 <ng-template #textEsp2 let-section let-odd="odd">
-  <div class="wrapper-content--between wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
+  <div
+    class="wrapper-content--between wrapper-content--s92"
+    [ngClass]="{'content__section--reverse': odd}"
+  >
     <div
       class="content__info content__info--esp2"
       [innerHTML]="section?.description | mdToHtml"
@@ -158,16 +165,15 @@
         <img src="assets/{{img}}" />
       </div>
     </div>
-   
   </div>
 
   <!-- MOBILE -->
   <div
-    *ngFor="let item of section?.body?.content; let last= last"
+    *ngFor="let item of section?.body?.content; let last= last; let i = index"
     class="content__info--esp2m"
   >
     <div class="img-esp" *ngIf="!last">
-      <img src="assets/female-solid.svg" class="img-esp-elments" />
+      <img src="assets/{{section?.imgEsp[i]}}" class="img-esp-elments" />
     </div>
     <div [innerHTML]="item.content[0].value | mdToHtml"></div>
   </div>
@@ -176,9 +182,12 @@
 <!-- TEXT TYPE 2 -->
 <ng-template #text2 let-section>
   <div class="wrapper-content--between wrapper-content--s92">
-  <div *ngFor="let item of section?.body?.content" class="content__info--text2">
-    <div [innerHTML]="item.content[0].value | mdToHtml"></div>
-  </div>
+    <div
+      *ngFor="let item of section?.body?.content"
+      class="content__info--text2"
+    >
+      <div [innerHTML]="item.content[0].value | mdToHtml"></div>
+    </div>
   </div>
 </ng-template>
 
@@ -189,7 +198,6 @@
     [innerHTML]="section?.description | mdToHtml"
   ></div>
 </ng-template>
-
 
 <!-- TEXT -->
 <ng-template #text let-section>

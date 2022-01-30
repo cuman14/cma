@@ -17,7 +17,7 @@ p {
 }
 .section {
   // width:100%;
-  padding: 3rem;
+  padding: 1.5rem;
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +43,7 @@ p {
 .base-title {
   font-size: 2.7rem;
   margin: 0;
+  text-transform: capitalize;
 }
 .title {
   @extend .base-title;
@@ -79,6 +80,7 @@ p {
     display: none !important;
   }
   .section {
+    padding: 3rem;
     height: 371px;
     &--md {
       height: 271px;

@@ -35,6 +35,12 @@
       ></ng-container>
 
       <ng-container
+        *ngSwitchCase="'textWithIcon'"
+        [ngTemplateOutlet]="textWithIcon"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
+
+      <ng-container
         *ngSwitchCase="'text-large'"
         [ngTemplateOutlet]="textLarge"
         [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
@@ -77,7 +83,10 @@
 </ng-container>
 <!-- IMAGEN -->
 <ng-template #textWithImg let-section let-odd="odd">
-  <div class="wrapper-content--between wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
+  <div
+    class="wrapper-content--between wrapper-content--s92"
+    [ngClass]="{'content__section--reverse': odd}"
+  >
     <img src="assets/{{section?.descriptionImg}}" class="content__img-info" />
     <div
       class="content__info--img"
@@ -88,7 +97,10 @@
 
 <!-- VIDEO -->
 <ng-template #textWithVideo let-section let-odd="odd" let-first="first">
-  <div class="wrapper-content" [ngClass]="{'content__section--reverse': odd || !first}">
+  <div
+    class="wrapper-content"
+    [ngClass]="{'content__section--reverse': odd || !first}"
+  >
     <div
       class="content__info--video"
       [innerHTML]="section?.description | mdToHtml"
@@ -197,6 +209,17 @@
     class="content__info content__info--text3"
     [innerHTML]="section?.description | mdToHtml"
   ></div>
+</ng-template>
+
+<!-- TEXT WITH ICON-->
+<ng-template #textWithIcon let-section let-odd="odd">
+  <div class="wrapper-content wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
+    <div class="content__info content__info--icon" [innerHTML]="section?.description | mdToHtml"></div>
+   <div class="text-icon">
+    <img src="assets/{{section?.descriptionImg}}" class="icon" />
+  </div>
+  </div>
+ 
 </ng-template>
 
 <!-- TEXT -->

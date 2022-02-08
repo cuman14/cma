@@ -1,5 +1,6 @@
 <ng-container *ngIf="data">
   <section class="section section--gray section--md content__header" @fadeIn>
+    <div class="bkg--gray2"></div>
     <div class="content__text">
       <h1 class="title--blue title2">{{data.titlePage}}</h1>
       <p class="home__text">
@@ -35,6 +36,12 @@
       ></ng-container>
 
       <ng-container
+        *ngSwitchCase="'textWithVideoReverse'"
+        [ngTemplateOutlet]="textWithVideo"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd, first: first, reverse: true}"
+      ></ng-container>
+
+      <ng-container
         *ngSwitchCase="'textWithIcon'"
         [ngTemplateOutlet]="textWithIcon"
         [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
@@ -56,6 +63,13 @@
         [ngTemplateOutlet]="textEsp2"
         [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
       ></ng-container>
+
+      <ng-container
+        *ngSwitchCase="'text-esp2Reverse'"
+        [ngTemplateOutlet]="textEsp2"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd, reverse: true}"
+      ></ng-container>
+
       <ng-container
         *ngSwitchCase="'text-esp'"
         [ngTemplateOutlet]="textEsp"
@@ -66,6 +80,12 @@
         *ngSwitchCase="'text2'"
         [ngTemplateOutlet]="text2"
         [ngTemplateOutletContext]="{$implicit: section, odd : odd}"
+      ></ng-container>
+
+      <ng-container
+        *ngSwitchCase="'text2Reverse'"
+        [ngTemplateOutlet]="text2"
+        [ngTemplateOutletContext]="{$implicit: section, odd : odd, reverse: true}"
       ></ng-container>
 
       <ng-container
@@ -96,10 +116,17 @@
 </ng-template>
 
 <!-- VIDEO -->
-<ng-template #textWithVideo let-section let-odd="odd" let-first="first">
+<ng-template
+  #textWithVideo
+  let-section
+  let-odd="odd"
+  let-first="first"
+  let-reverse="reverse"
+>
   <div
     class="wrapper-content"
     [ngClass]="{'content__section--reverse': odd || !first}"
+    [ngClass]="{'content__section--reverse': reverse}"
   >
     <div
       class="content__info--video"
@@ -163,10 +190,10 @@
 </ng-template>
 
 <!-- TEXT WITH SPECIFICATION TYPE 2 -->
-<ng-template #textEsp2 let-section let-odd="odd">
+<ng-template #textEsp2 let-section let-odd="odd" let-reverse="reverse">
   <div
     class="wrapper-content--between wrapper-content--s92"
-    [ngClass]="{'content__section--reverse': odd}"
+    [ngClass]="{'content__section--reverse': odd || reverse}"
   >
     <div
       class="content__info content__info--esp2"
@@ -192,11 +219,14 @@
 </ng-template>
 
 <!-- TEXT TYPE 2 -->
-<ng-template #text2 let-section>
+<ng-template #text2 let-section let-reverse="reverse">
   <div class="wrapper-content--between wrapper-content--s92">
     <div
       *ngFor="let item of section?.body?.content"
       class="content__info--text2"
+      [ngClass]="{
+      'content__info--text2-left': reverse,
+      'content__info--text2-right': !reverse}"
     >
       <div [innerHTML]="item.content[0].value | mdToHtml"></div>
     </div>
@@ -213,13 +243,18 @@
 
 <!-- TEXT WITH ICON-->
 <ng-template #textWithIcon let-section let-odd="odd">
-  <div class="wrapper-content wrapper-content--s92" [ngClass]="{'content__section--reverse': odd}">
-    <div class="content__info content__info--icon" [innerHTML]="section?.description | mdToHtml"></div>
-   <div class="text-icon">
-    <img src="assets/{{section?.descriptionImg}}" class="icon" />
+  <div
+    class="wrapper-content wrapper-content--s92"
+    [ngClass]="{'content__section--reverse': odd}"
+  >
+    <div
+      class="content__info content__info--icon"
+      [innerHTML]="section?.description | mdToHtml"
+    ></div>
+    <div class="text-icon">
+      <img src="assets/{{section?.descriptionImg}}" class="icon" />
+    </div>
   </div>
-  </div>
- 
 </ng-template>
 
 <!-- TEXT -->

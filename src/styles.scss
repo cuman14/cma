@@ -125,3 +125,18 @@ p {
     display: none;
   }
 }
+
+
+/* Scroll 1 */
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scrollbar::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  border-radius: 10px;
+}

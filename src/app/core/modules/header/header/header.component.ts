@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { SearchService } from '../../search/search.service';
 
 @Component({
   selector: 'cma-header',
@@ -7,9 +8,15 @@ import { Component, OnInit, OnChanges } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _search: SearchService) { }
 
   ngOnInit(): void {
+    this._search.activeSearch().subscribe((res : boolean) => {
+      if(res) {
+      } 
+    })
   }
+
+
 
 }

@@ -1,0 +1,14 @@
+<div class="search__field">
+  <span *ngIf="!toggle" class="material-icons search-icon" (click)="search($event)">search</span>
+  <ng-container *ngIf="toggle">
+    <input
+    class="search__input"
+      type="text"
+      tabindex="1"
+      placeholder="Buscar..."
+      autocomplete="off"
+      (keydown)="onValueChange($event?.target)"
+    />
+    <span class="material-icons search-icon--close" (click)="close($event)">close</span>
+  </ng-container>
+</div>

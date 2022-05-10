@@ -6,17 +6,12 @@
   width: 88%;
   margin: 0 auto;
   justify-content: space-between;
+  align-items: center;
+
   &__img {
       width: 235px;
       height: 67px;
       align-self: center;
-  }
-  &__search {
-    font-size: 34px;
-    color: #0299d7;
-    align-self: center;
-    font-weight: 600;
-    cursor: pointer;
   }
 }
 @media (min-width: $size-ismobile) {

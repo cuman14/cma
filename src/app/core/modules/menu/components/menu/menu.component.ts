@@ -1,6 +1,5 @@
-import { hamburgerButton, hamburgerButtonChildUp, hamburgerButtonChildDown, expand, smoothHeight } from './../../menu-animation';
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
-import { Menu, Submenu } from '../../models/menu.model';
+import { Component,OnInit } from '@angular/core';
+import {  Submenu } from '../../models/menu.model';
 import { MenuService } from '../../services/menu.service';
 import { MenuBase } from '../menu-base';
 import { Router } from '@angular/router';

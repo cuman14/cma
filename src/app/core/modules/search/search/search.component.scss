@@ -1,0 +1,52 @@
+.search {
+    position: relative;
+    background: #ffff;
+    width: 97%;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    transform: translateY(-131rem);
+    border-radius: 3px;
+    min-height: 50px;
+    height: 30rem;
+    top: 14px;
+    padding: 1rem;
+    z-index: 2;
+    overflow-y: scroll;
+    &__element {
+        padding:0.2rem 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+        &:hover {
+            background-color:#0199D7 ;
+            color: #ffff;
+            border-radius: 10px;
+        }
+    }
+}
+.backdrop {
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ffff;
+    z-index: 1;
+}
+@media (min-width: 1024px) {
+    .search {
+        transform: translate(-1.1rem, -123rem);
+        top: 0;
+        height: 341px;
+    }
+    .backdrop {
+        background-color: #0000007a;
+    }
+  }
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .search {
+        transform: translate(-1.1rem, -140rem);
+        top: 5px;
+    }
+}

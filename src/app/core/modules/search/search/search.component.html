@@ -1,0 +1,13 @@
+<div class="search scrollbar"
+[@slideContent]="animationState"
+(@slideContent.start)="onAnimationStart($event)"
+(@slideContent.done)="onAnimationDone($event)"
+
+>
+
+ <div *ngFor="let item of optionsSearch |async" class="search__element" (click)="selectedOptions(item)"
+ [routerLink]="['content/', item.code]">
+      <h3>{{item.title}}</h3>
+ </div>
+</div>
+<div class="backdrop" (click)="close()"></div>

@@ -11,7 +11,7 @@ import { SearchService } from '../search.service';
   styleUrls: ['./search-icon.component.scss'],
 })
 export class SearchIconComponent implements OnInit {
-  toggle: boolean = false;
+  toggle: boolean = true;
   optionsSearch: Submenu[] = [];
   constructor(
     private readonly _search: SearchService,
@@ -29,9 +29,9 @@ export class SearchIconComponent implements OnInit {
     this.toggle = !this.toggle;
     this._search.open();
     if(ToolUtil.isMobile()) {
-      this._reander2.setStyle(document, 'overflow-y', 'hidden');
+      this._reander2.setStyle(document.body, 'overflow', 'hidden');
     } else {
-      this._reander2.setStyle(document, 'overflow-y', 'scroll');
+      this._reander2.removeStyle(document.body, 'overflow');
 
     }
     event.stopPropagation();
@@ -40,7 +40,7 @@ export class SearchIconComponent implements OnInit {
   close(event?: Event) {
     this.toggle = !this.toggle;
     this._search.close();
-    this._reander2.setStyle(document, 'overflow-y', 'scroll');
+    this._reander2.removeStyle(document.body, 'overflow');
     event?.stopPropagation();
 
     //  this._searchData.handleSearch(false);

@@ -1,16 +1,17 @@
 .search {
     position: relative;
     background: #ffff;
-    width: 97%;
+    width: 90%;
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
     transform: translateY(-131rem);
     border-radius: 3px;
     min-height: 50px;
-    height: 30rem;
+    height: 74vh;
     top: 14px;
     padding: 1rem;
     z-index: 2;
     overflow-y: scroll;
+    margin: 0 auto;
     &__element {
         padding:0.2rem 1rem;
         cursor: pointer;
@@ -35,9 +36,11 @@
 }
 @media (min-width: 1024px) {
     .search {
-        transform: translate(-1.1rem, -123rem);
+        width: 30.6%;
+        transform: translate(49.3rem, -123rem);
         top: 0;
         height: 341px;
+        margin: 0;
     }
     .backdrop {
         background-color: #0000007a;
@@ -46,6 +49,7 @@
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .search {
+        
         transform: translate(-1.1rem, -140rem);
         top: 5px;
     }

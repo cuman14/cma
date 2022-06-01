@@ -3,13 +3,11 @@
     background: #ffff;
     width: 90%;
     box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-    transform: translateY(-131rem);
     border-radius: 3px;
     min-height: 50px;
     height: 74vh;
-    top: 14px;
+    top: 10rem;
     padding: 1rem;
-    z-index: 2;
     overflow-y: scroll;
     margin: 0 auto;
     &__element {
@@ -23,17 +21,7 @@
         }
     }
 }
-.backdrop {
-    width: 100%;
-    position: absolute;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ffff;
-    z-index: 1;
-}
+
 @media (min-width: 1024px) {
     .search {
         width: 30.6%;

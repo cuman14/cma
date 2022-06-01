@@ -140,3 +140,26 @@ p {
   background-color: #dfdfdf;
   border-radius: 10px;
 }
+
+.base-wrapper-overlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+/* OVERLAY */
+.cdk-overlay-container {
+  position: fixed;
+  z-index: 1000;
+  @extend .base-wrapper-overlay;
+
+}
+
+.cdk-global-overlay-wrapper {
+  @extend .base-wrapper-overlay;
+
+}
+.cdk-overlay-container:empty {
+  display: none;
+  z-index: -1;
+}

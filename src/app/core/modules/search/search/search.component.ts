@@ -1,4 +1,4 @@
-import { Component, ComponentRef, ElementRef, EventEmitter, NgZone, OnInit, Renderer2, ViewChild } from "@angular/core";
+import { Component, ComponentRef, ElementRef, EventEmitter, Inject, NgZone, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { AnimationEvent } from "@angular/animations";
 import { CdkPortalOutlet, ComponentPortal } from "@angular/cdk/portal";
 import { SearchRef } from "../search-ref";

@@ -61,6 +61,8 @@ export class SearchRef<T> {
       )
       .subscribe(() => {
         this.overlayRef.dispose();
+        this.overlayRef.detach();
+
         this._afterClosed.next(this._data);
         this._afterClosed.complete();
         this.containerInstance = null as any;

@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit  {
 
   isMobile = ToolUtil.isMobile();
   constructor() { 
+    console.log(this.isMobile);
   }
 
   ngOnInit(): void {

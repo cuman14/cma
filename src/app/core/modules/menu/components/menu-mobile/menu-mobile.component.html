@@ -17,7 +17,7 @@
 
     <div
       class="menu__element"
-      *ngFor="let menuItem of menu$ | async, let i = index"
+      *ngFor="let menuItem of menu, let i = index"
       (click)="_selectItem(i, $event)"
     >
       <h2 class="menu__element--title">{{menuItem.title}}</h2>

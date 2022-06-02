@@ -26,6 +26,7 @@ export class SearchIconComponent implements OnInit {
   }
 
   search(event: Event): void {
+    this._getElementsSubmenu();
     this.toggle = !this.toggle;
     this._search.open();
     if(ToolUtil.isMobile()) {

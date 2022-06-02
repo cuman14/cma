@@ -1,4 +1,4 @@
-import { Component, ComponentRef, ElementRef, EventEmitter, Inject, NgZone, OnInit, Renderer2, ViewChild } from "@angular/core";
+import { Component, ComponentRef, ElementRef, EventEmitter, HostListener, Inject, NgZone, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { AnimationEvent } from "@angular/animations";
 import { CdkPortalOutlet, ComponentPortal } from "@angular/cdk/portal";
 import { SearchRef } from "../search-ref";
@@ -23,7 +23,10 @@ export class SearchComponent implements OnInit {
 
   optionsSearch!: Observable<Submenu[] | null>;
   private _elementFocusedBeforeOpened: HTMLElement | null = null;
-
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+      this.close();
+  }
   constructor(
     public dialogRef: SearchRef<SearchComponent>,
     private readonly _searchData: SearchDataService,

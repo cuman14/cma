@@ -1,15 +1,16 @@
 .search {
     position: relative;
     background: #ffff;
-    width: 90%;
-    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
     border-radius: 3px;
     min-height: 50px;
-    height: 74vh;
-    top: 10rem;
+    height: 85vh;
     padding: 1rem;
     overflow-y: scroll;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 6rem;
     &__element {
         padding:0.2rem 1rem;
         cursor: pointer;
@@ -21,17 +22,21 @@
         }
     }
 }
+.backdrop {
+    background: #ffff;
+    height: 100vh;
+    display: block;
+    filter: blur(8px);
+}
 
 @media (min-width: 1024px) {
     .search {
         width: 30.6%;
-        transform: translate(49.3rem, -123rem);
-        top: 0;
+        transform: translate(22.3rem, -5px);
         height: 341px;
-        margin: 0;
     }
     .backdrop {
-        background-color: #0000007a;
+        display: none;
     }
   }
 

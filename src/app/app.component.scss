@@ -1,11 +1,24 @@
+.menu {
+  margin-top: 3rem;
+  top: 4.6rem;
+  width: 100%;
+  left: 0;
+  display: block;
+}
+.container {
+  height: 100vh;
+}
 
-    .menu {
-        margin-top: 3rem;
-        top: 4.6rem;
-        width: 100%;
-        left: 0;
-        display: block;
-    }
-    .container {
-        height: 100vh;
-    }
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #4d4d4d;
+  color: #ffffff;
+  padding: 3rem 16rem;
+  p {
+    color: #ffffff;
+    font-size: 17px;
+    text-align: center;
+  }
+}

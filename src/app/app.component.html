@@ -1,7 +1,16 @@
 
 <cma-header></cma-header>
 <cma-menu-mobile class="menu ismobile"></cma-menu-mobile>
-<div class="container" [@fadeIn]="prepareRoute(outlet)">
+<div [@fadeIn]="prepareRoute(outlet)">
     <router-outlet  #outlet="outlet"></router-outlet>
 </div>
-<footer class="container"></footer>
+<footer class="footer">
+    <h2 class="title">Ayuda</h2>
+    <p>
+        Si tienes cualquier tipo de duda o consulta sobre sus autocuidados en el domicilio
+        tras la CMA haga click 
+    </p>
+    <button type="button">
+        Aquí
+    </button>
+</footer>

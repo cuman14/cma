@@ -2,18 +2,18 @@ export const INFO_HELP = [
     {
         img: 'phone_in_talk',
         title: 'Teléfono',
-        text: '+34 91 XXX XX XX'
+        text: '914818000'
     },
     {
         img: 'alternate_email',
         title: 'Correo electrónico',
-        text: 'infocma@gmail.com',
+        text: 'CIRUGIAMAYORAMBULATORIAHSO@HOTMAIL.COM',
         description: 'Plazo de respuesta máximo 72h'
     },
     {
         img: 'person',
         title: '',
         text: 'Si prefiere puede asistir presencialmente en la siguiente direccion',
-        description: 'Calle XXXX, Nº20, Bajo D'
+        description: 'CALLE ORELLANA SIN NUMERO 28911 LEGANES, MADRID'
     },
 ]

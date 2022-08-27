@@ -11,6 +11,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-width: 300px;
+    text-align: center;
         &-img {
             font-size: 104px;
             color: #ffff;

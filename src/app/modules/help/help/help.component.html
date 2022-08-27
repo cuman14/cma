@@ -1,0 +1,10 @@
+<div class="bkg-general help">
+  <div *ngFor="let item of infoHelp" class="help-element">
+    <cma-card-item [offOpen]="true">
+        <span class="material-icons help-element-img">{{item.img}}</span>
+    </cma-card-item>
+    <h3>{{ item.title }}</h3>
+    <span>{{ item.text }}</span>
+    <span>{{ item.description }}</span>
+  </div>
+</div>

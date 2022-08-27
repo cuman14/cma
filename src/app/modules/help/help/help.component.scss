@@ -1,0 +1,19 @@
+.help {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem 4rem;
+    padding: 3rem;
+    h3 {
+        margin: 0;
+    }
+    &-element {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &-img {
+            font-size: 104px;
+            color: #ffff;
+        }
+    }
+}

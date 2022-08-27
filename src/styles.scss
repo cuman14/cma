@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./var";
 
-
-
 body {
   font-family: "Roboto", sans-serif;
   margin: 0 auto;
-  max-width: 1366px;
+  //max-width: 1366px;
   height: 100vh;
 }
 p {
@@ -26,7 +24,7 @@ p {
   &--gray {
     @extend .bkg-base;
     background-color: #f2f2f2;
-    &2{
+    &2 {
       @extend .bkg--gray;
       height: 366px;
     }
@@ -44,7 +42,7 @@ p {
   height: auto;
   display: flex;
   flex-wrap: wrap;
- 
+
   &--gray {
     background-color: $bkg-section1;
   }
@@ -75,8 +73,8 @@ p {
   }
 }
 .title2 {
-    @extend .base-title;
-    font-size: 34px;
+  @extend .base-title;
+  font-size: 34px;
 }
 .underline {
   text-decoration: none;
@@ -114,7 +112,6 @@ p {
       height: auto;
     }
   }
-
 }
 
 @media (max-width: $size-ismobile) {
@@ -125,7 +122,6 @@ p {
     display: none;
   }
 }
-
 
 /* Scroll 1 */
 .scrollbar::-webkit-scrollbar {
@@ -152,14 +148,26 @@ p {
   position: fixed;
   z-index: 1000;
   @extend .base-wrapper-overlay;
-
 }
 
 .cdk-global-overlay-wrapper {
   @extend .base-wrapper-overlay;
-
 }
 .cdk-overlay-container:empty {
   display: none;
   z-index: -1;
+}
+
+.bkg-general {
+  display: block;
+  background: antiquewhite;
+  background-image: linear-gradient(
+    to bottom,
+    #f2f2f2,
+    #f2f2f2 409px,
+    #ffffff 0px,
+    #ffffff 325px
+  );
+  background-size: 100% 743px;
+  background-repeat: repeat;
 }

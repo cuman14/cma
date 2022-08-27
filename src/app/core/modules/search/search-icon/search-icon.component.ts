@@ -48,12 +48,18 @@ export class SearchIconComponent implements OnInit {
   }
 
   onValueChange(target: any) {
-    const optionsFilter = this._getOptionsFilter(target.value);
-    this._searchData.setOptionsSearch(optionsFilter);
+    if(target.value) {
+      const optionsFilter = this._getOptionsFilter(target.value);
+      this._searchData.setOptionsSearch(optionsFilter);
+    } else {
+      this.optionsSearch = [];
+    }
+   
   }
 
   private _getElementsSubmenu() {
     this._searchOptions.getMenu().subscribe((res) => {
+      this.optionsSearch = [];
       res.forEach(
         (menu: Menu) =>
           menu?.submenu?.forEach((submenu) => this.optionsSearch.push(submenu)),

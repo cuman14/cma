@@ -1,7 +1,10 @@
+@import "./var";
+
 .menu {
+  margin: 0 auto;
   margin-top: 3rem;
   top: 4.6rem;
-  width: 100%;
+  width: 95%;
   left: 0;
   display: block;
 }
@@ -15,10 +18,22 @@
   align-items: center;
   background-color: #4d4d4d;
   color: #ffffff;
-  padding: 3rem 16rem;
+  padding: 3rem 35px;
   p {
     color: #ffffff;
     font-size: 17px;
     text-align: center;
   }
+  button {
+    width: 212px;
+    height: 43px;
+    background-color: $primary-color;
+    color: #ffffff;
+    font-size: 20px;
+    border: none;
+    &:hover {
+      background-color:#19a9e4b8;
+    }
+  }
+
 }

@@ -2,7 +2,7 @@ export const INFO_HELP = [
     {
         img: 'phone_in_talk',
         title: 'Teléfono',
-        text: '914818000'
+        text: '91 481 80 00'
     },
     {
         img: 'alternate_email',
